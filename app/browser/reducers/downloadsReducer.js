@@ -95,9 +95,9 @@ const downloadsReducer = (state, action) => {
     case appConstants.APP_SELECT_DEFAULT_DOWNLOAD_PATH:
       const focusedWindow = BrowserWindow.getFocusedWindow()
 
-      dialog.showOpenDialog(focusedWindow, {
+      dialog.showDialog(focusedWindow, {
         defaultPath: app.getPath('downloads'),
-        properties: ['openDirectory', 'createDirectory']
+        type: 'select-folder'
       }, (folder) => {
         if (Array.isArray(folder) && fs.lstatSync(folder[0]).isDirectory()) {
           appActions.changeSetting(settings.DOWNLOAD_DEFAULT_PATH, folder[0])
