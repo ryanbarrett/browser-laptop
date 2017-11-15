@@ -7,6 +7,8 @@
 
 let ready = false
 
+require('cache-require-paths')
+
 const CrashHerald = require('./crash-herald')
 const telemetry = require('./telemetry')
 
