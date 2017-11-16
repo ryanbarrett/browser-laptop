@@ -57,10 +57,9 @@ const createFileSubmenu = () => {
       label: locale.translation('openFile'),
       accelerator: 'CmdOrCtrl+O',
       click: (item, focusedWindow) => {
-        const defaultPath = getSetting(settings.DOWNLOAD_DEFAULT_PATH) || app.getPath('downloads')
         dialog.showDialog(focusedWindow, {
-          type: 'select-open-multi-file',
-          defaultPath
+          title: locale.translation('openFile'),
+          type: 'select-open-multi-file'
         }, (paths) => {
           if (paths) {
             paths.forEach((path) => {

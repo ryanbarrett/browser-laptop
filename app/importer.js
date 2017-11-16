@@ -59,11 +59,9 @@ exports.importHTML = (selected) => {
   isImportingBookmarks = true
   const state = appStore.getState()
   hasBookmarks = bookmarksState.getBookmarks(state).size > 0 || bookmarkFoldersState.getFolders(state).size > 0
-  const defaultPath = getSetting(settings.DOWNLOAD_DEFAULT_PATH) || app.getPath('downloads')
   dialog.showDialog({
     type: 'select-open-file',
-    extensions: ['html', 'htm'],
-    defaultPath
+    extensions: ['html', 'htm']
   }, (files) => {
     if (files && files.length === 1) {
       const file = files[0]

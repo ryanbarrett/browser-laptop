@@ -39,7 +39,7 @@ const showDialog = (state) => {
     type: 'select-saveas-file',
     extensions: ['html']
   }, (fileNames) => {
-    if (fileNames.length === 1) {
+    if (fileNames && fileNames.length === 1) {
       personal = createBookmarkArray(state)
       other = createBookmarkArray(state, -1, false)
       fs.writeFileSync(fileNames[0], createBookmarkHTML(personal, other))
